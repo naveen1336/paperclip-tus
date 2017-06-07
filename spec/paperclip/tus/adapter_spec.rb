@@ -61,5 +61,19 @@ RSpec.describe Paperclip::Tus::Adapter do
       subject.original_filename = 'image:restricted.png'
       expect(subject.path).to_not match(/:/)
     end
+
+    context 'with invalid tus storage' do
+      before do
+        Tus::Server.opts[:storage] = Array.new
+      end
+
+      it 'raises an error' do
+        expect { subject }.to raise_error(
+          'Paperclip tus adapter does not support Array! ' \
+          'Please set Tus::Server.opts[:storage] to ' \
+          'Tus::Storage::Filesystem.new(cache_directory)'
+        )
+      end
+    end
   end
 end
