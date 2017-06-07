@@ -38,10 +38,11 @@ module Paperclip
       end
 
       def ensure_tus_filesystem_storage!
-        unless tus_storage.class == ::Tus::Storage::Filesystem
-          raise "Paperclip Tus Adapter does not support #{tus_storage.class.name}!" \
-            "Please set Tus::Server.opts[:storage] to Tus::Storage::Filesystem.new(cache_directory)"
-        end
+        return if tus_storage.class == ::Tus::Storage::Filesystem
+
+        raise 'Paperclip tus adapter does not support ' \
+          "#{tus_storage.class.name}! Please set Tus::Server.opts[:storage] " \
+          'to Tus::Storage::Filesystem.new(cache_directory)'
       end
 
       def copy_to_tempfile(src_path)
@@ -53,5 +54,5 @@ module Paperclip
 end
 
 Paperclip.io_adapters.register Paperclip::Tus::Adapter do |target|
-  String === target && target =~ Paperclip::Tus::Adapter::REGEXP
+  target.is_a?(String) && target =~ Paperclip::Tus::Adapter::REGEXP
 end

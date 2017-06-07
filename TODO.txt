@@ -1,2 +1,1 @@
 * README (explain how to use with tus-js-client)
-* rubocop

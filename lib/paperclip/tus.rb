@@ -1,2 +1,2 @@
-require "paperclip/tus/version"
-require "paperclip/tus/adapter"
+require 'paperclip/tus/version'
+require 'paperclip/tus/adapter'

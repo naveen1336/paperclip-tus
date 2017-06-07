@@ -1,6 +1,7 @@
 require 'spec_helper'
-require 'paperclip/tus/adapter'
-require 'active_support/core_ext/object/try' # missing dependency for Paperclip::ContentTypeDetector
+
+# missing dependency for Paperclip::ContentTypeDetector
+require 'active_support/core_ext/object/try'
 
 RSpec.describe Paperclip::Tus::Adapter do
   context 'a new instance' do
