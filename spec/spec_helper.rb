@@ -1,4 +1,5 @@
 require 'bundler/setup'
+require 'active_support/core_ext/module/delegation'
 require 'paperclip/tus'
 
 RSpec.configure do |config|
