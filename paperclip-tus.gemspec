@@ -27,5 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop'
 
   spec.add_runtime_dependency 'paperclip', '>= 4.3'
-  spec.add_runtime_dependency 'tus-server', '~> 0.10'
+  spec.add_runtime_dependency 'tus-server', '~> 2.0'
 end
