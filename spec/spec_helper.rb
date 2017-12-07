@@ -1,5 +1,8 @@
 require 'bundler/setup'
+
+# missing dependency for Paperclip::UrlGenerator
 require 'active_support/core_ext/module/delegation'
+
 require 'paperclip/tus'
 
 RSpec.configure do |config|
